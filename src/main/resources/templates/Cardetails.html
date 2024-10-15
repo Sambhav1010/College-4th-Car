@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <style>
+        /* Custom styling */
+        .car-details-container {
+            margin-top: 50px;
+        }
+        .car-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .car-card img {
+            border-radius: 8px 8px 0 0;
+        }
+        .car-info {
+            padding: 20px;
+        }
+        .btn-book-now {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+        .btn-book-now:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container car-details-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="car-card card">
+                <img th:src="@{/photos/{imagename}(imagename=${p.imagename})}" class="card-img-top" alt="Car Image">
+                <div class="car-info">
+                    <h2 class="card-title text-center" th:text="${p.name}">Car Name</h2>
+                    
+                    <p class="text-muted text-center" th:text="'Price: $' + ${p.price}">Price: $XXXX</p>
+                    
+                    <hr>
+                    
+                    <!-- Date Range Picker Form -->
+                    <form th:action="@{/car/book}" method="post">
+                        <div class="form-group">
+                            <label for="bookingDateRange">Select Booking Date Range</label>
+                            <input type="text" id="bookingDateRange" name="bookingDateRange" class="form-control" required />
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-book-now">Confirm booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Moment.js for date handling -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<!-- Date Range Picker JS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        $('#bookingDateRange').daterangepicker({
+            timePicker: true,
+            timePicker24Hour: true,
+            locale: {
+                format: 'YYYY-MM-DD HH:mm'
+            },
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(24, 'hour')
+        });
+    });
+</script>
+
+</body>
+</html>

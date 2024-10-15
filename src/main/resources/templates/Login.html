@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+        
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+        
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
+        
+        .form-signin input[type="email"],
+        .form-signin input[type="password"] {
+            direction: ltr;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body class="text-center">
+
+<p> [[${error}]]</p>
+    <main class="form-signin">
+        <form action="/signinmethod" method="post">
+            
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
+                <label for="floatingInput">Username</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                <label for="floatingPassword">Password</label>
+            </div>
+
+          
+            <input type="submit" value="Sign in">
+            <p class="mt-5 mb-3 text-muted">Don't have an account? <a href="/signupmethod">Sign Up</a></p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2021-2022</p>
+        </form>
+    </main>
+</body>
+
+</html>

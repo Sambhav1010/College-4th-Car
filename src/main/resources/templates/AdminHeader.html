@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Navbar</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the navbar container */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Navbar links */
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Right-aligned "Logout" option */
+        .navbar a.logout {
+            float: right;
+            background-color: #ff4d4d; /* Red background for logout */
+        }
+
+        .navbar a.logout:hover {
+            background-color: #e60000; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar HTML -->
+    <div class="navbar">
+        <a href="/addproductmethod">Add Product</a>
+        <a href="/productlistmethod">Product List</a>
+        <a href="/employee">Employee</a>
+        <a href="/employeelist">Employee List</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+
+</body>
+</html>

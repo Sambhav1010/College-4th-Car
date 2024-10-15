@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document Edit Form</title>
+  
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Optional: Custom CSS -->
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Form Container -->
+  <div class="container">
+    <div class="form-container">
+      <h2 class="form-header">Product Edit Form</h2>
+      <form action="/AddAndUpdate" method="post" enctype="multipart/form-data" th:object="${prodmodel}">
+        
+        <!-- Product Name -->
+        <div class="form-group">
+          <label for="productName">Product Name:</label>
+          <input type="text" class="form-control" id="productName" th:field="*{name}" placeholder="Enter product name" required>
+        </div>
+
+        <!-- Product Price -->
+        <div class="form-group">
+          <label for="productPrice">Product Price:</label>
+          <input type="text" class="form-control" id="productPrice" th:field="*{price}" placeholder="Enter product price" required>
+        </div>
+
+        <!-- Product Image -->
+        <div class="form-group">
+          <label for="productImage">Product Image:</label>
+          <input type="file" class="form-control-file" id="productImage" name="image" required>
+        </div>
+
+        <!-- Hidden ID Field -->
+        <input type="hidden" th:field="*{id}">
+
+        <!-- Submit Button -->
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary">Add Product</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

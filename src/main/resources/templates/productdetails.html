@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- For icons -->
+     <style>
+        .car-img {
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+	<th:block th:insert="Header.html"></th:block>
+	
+	<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img th:src="@{/photos/{imagename}(imagename=${car.imagename})}" class="img-fluid car-img" alt="Car Image">
+        </div>
+        <div class="col-md-6">
+            <h3 th:text="${car.name}">Car Name</h3>
+            
+            <h4>$<span th:text="${car.price}">Price</span> / Day</h4>
+            <a href="#" class="btn btn-primary">Book Now</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .form-signup {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+        
+        .form-signup .form-floating:focus-within {
+            z-index: 2;
+        }
+        
+        .form-signup input[type="email"],
+        .form-signup input[type="password"] {
+            direction: ltr;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body class="text-center">
+    <main class="form-signup">
+    
+        <form action="/adminsignupmethod" method="post">
+        
+        
+            <img class="mb-4" src="https://via.placeholder.com/150" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="firstname" name="fname">
+                <label for="floatingInput"></label>
+            </div>
+
+			  <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="lastname" name="lname">
+                <label for="floatingInput"></label>
+                
+            </div>
+            
+            
+             <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
+                <label for="floatingInput"></label>
+            </div>
+			
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                <label for="floatingInput"></label>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="agree" required> I agree to the terms and conditions
+                </label>
+            </div>
+            <input type="submit" value="submit">
+        </form>
+    </main>
+</body>
+
+</html>

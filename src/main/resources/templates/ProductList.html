@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Product List</title>
+    <style>
+        /* Style the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        /* Style table headers */
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Add hover effect for table rows */
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Style buttons */
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Image styling */
+        img {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <th:block th:insert="~{AdminHeader.html}"></th:block>
+    <h2>Product List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p: ${productlist}">
+                <td>[[${p.name}]]</td>
+                <td>[[${p.price}]]</td>
+                <td><img th:src="@{'photos/'+${p.imagename}}" width="100"/></td>
+                <td>
+                    <a th:href="@{/prod/edit(id=${p.id})}"><input type="submit" value="Edit"></a>
+                    <a th:href="@{/prod/delete(id=${p.id})}"><input type="submit" value="Delete"></a>
+                     <button th:onclick="'displayProduct(' + ${p.id} + ')'">Display</button>
+                    
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    	
+    	<script>
+    		function displayProduct(productId){
+    			
+    			window.location.href=`/dashboard/display/${productId}`;
+    		}
+    	
+    	</script>
+</body>
+</html>
